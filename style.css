@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: "Noto Serif JP", serif;
+  overflow-x: hidden;
+}
+
+.scene {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.door-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+.door {
+  width: 50%;
+  transition: transform 1.5s ease;
+}
+#door.open .left { transform: translateX(-100%); }
+#door.open .right { transform: translateX(100%); }
+
+.bear {
+  max-width: 300px;
+}
+
+.blood {
+  max-height: 80vh;
+}
+
+.credit {
+  margin-top: 2rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* 懐中電灯 */
+#flashlight {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.98);
+  clip-path: circle(120px at center);
+  pointer-events: none;
+  display: none;
+}
