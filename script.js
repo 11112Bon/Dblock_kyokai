@@ -31,7 +31,7 @@ const records = [
       "[添付資料] 教会内部の間取り図を取得",
       ""
     ],
-    image: "images/church_interior.png",
+    image: "images/church.pic.png",
     evidences: [
       {
         text: ["作品名: あかいおねえさんとぼく", "作者: フィリップ・ロンバードくん"],
