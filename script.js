@@ -3,6 +3,11 @@ const log = document.getElementById("log");
 // ===== 記録データ =====
 const records = [
   {
+    day: "鮗ｻ阮ｬ蜿也ｷ?斥候隊長R.S.ウォーヴグレイヴの調査記録",
+    text:[
+    ]
+  }
+  {
     day: "Day 1",
     text: [
       "20▒▒年▒▒月▒▒日",
