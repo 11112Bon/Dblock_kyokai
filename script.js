@@ -4,9 +4,9 @@ const log = document.getElementById("log");
 const records = [
   {
     day: "鮗ｻ阮ｬ蜿也ｷ?斥候隊長R.S.ウォーヴグレイヴの調査記録",
-    text:[
-    ]
-  }
+    text:["", "", "",
+    ],
+  },
   {
     day: "Day 1",
     text: [
