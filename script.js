@@ -157,6 +157,23 @@ function showRecord(record) {
         img.className = "evidence";
         log.appendChild(img);
       }
+      if (record.evidences) {
+  record.evidences.forEach(ev => {
+    ev.text.forEach(line => {
+      let p = document.createElement("p");
+      p.textContent = line;
+      log.appendChild(p);
+    });
+
+    if (ev.image) {
+      let evImg = document.createElement("img");
+      evImg.src = ev.image;
+      evImg.className = "evidence";
+      log.appendChild(evImg);
+    }
+  });
+}
+
 
       recordIndex++;
       if (recordIndex < records.length) {
