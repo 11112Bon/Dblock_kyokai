@@ -19,6 +19,7 @@ const records = [
     ]
   },
   {
+  {
     day: "Day 2",
     text: [
       "内部調査を開始。",
@@ -31,10 +32,16 @@ const records = [
       ""
     ],
     image: "images/church_interior.png",
-      text:[
-        "作品名:",
-      ],
+    evidences: [
+      {
+        text: ["作品名: あかいおねえさんとぼく", "作者: フィリップ・ロンバードくん"]
+      },
+      {
+        text: ["作品名: しきょうさまとぼく", "作者: ジェイ・ギャッツビーくん"]
+      }
+    ]
   },
+
   {
     day: "Day 5",
     text: [
