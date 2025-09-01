@@ -1,5 +1,4 @@
 const log = document.getElementById("log");
-const bgm = document.getElementById("bgm");
 const typeSound = document.getElementById("typeSound");
 const glitchSound = document.getElementById("glitchSound");
 const screamSound = document.getElementById("screamSound");
@@ -18,7 +17,6 @@ const records = [
       "本調査の入信斡旋"
     ]
   },
-  {
   {
     day: "Day 2",
     text: [
@@ -175,7 +173,5 @@ function showRecord(record) {
 
 // ===== 実行 =====
 window.onload = () => {
-  bgm.volume = 0.3;
-  bgm.play();
   showRecord(records[recordIndex]);
 };
