@@ -29,11 +29,11 @@ const records = [
     image: "images/church_interior.png",
     evidences: [
       {
-        text: ["作品名: あかいおねえさんとぼく", "作者: フィリップ・ロンバードくん"]
+        text: ["作品名: あかいおねえさんとぼく", "作者: フィリップ・ロンバードくん"],
         image:"images/akainna.png",
       },
       {
-        text: ["作品名: しきょうさまとぼく", "作者: ジェイ・ギャッツビーくん"]
+        text: ["作品名: しきょうさまとぼく", "作者: ジェイ・ギャッツビーくん"],
         image:"images/yonsei.png",
       },
     ],
