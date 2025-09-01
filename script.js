@@ -67,7 +67,6 @@ const records = [
       "",
       "⚠⚠⚠記録映像に異常あり...#%&#$?!"
     ],
-    glitch: true
   },
   {
     day: "Day 12",
@@ -113,7 +112,6 @@ const records = [
       "....",
       "",
     ],
-    scream: true
   }
 ];
 
