@@ -1,7 +1,4 @@
 const log = document.getElementById("log");
-const typeSound = document.getElementById("typeSound");
-const glitchSound = document.getElementById("glitchSound");
-const screamSound = document.getElementById("screamSound");
 
 // ===== 記録データ =====
 const records = [
@@ -128,8 +125,6 @@ function typeLine(text, callback) {
   let i = 0;
   let interval = setInterval(() => {
     log.innerHTML += text[i] || "";
-    typeSound.currentTime = 0;
-    typeSound.play();
     i++;
     if (i >= text.length) {
       clearInterval(interval);
@@ -155,13 +150,7 @@ function showRecord(record) {
         img.className = "evidence";
         log.appendChild(img);
       }
-      if (record.glitch) {
-        glitchSound.play();
-        log.innerHTML += `<span class="glitch">▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</span>\n\n`;
-      }
-      if (record.scream) {
-        screamSound.play();
-      }
+
       recordIndex++;
       if (recordIndex < records.length) {
         setTimeout(() => showRecord(records[recordIndex]), 1000);
