@@ -35,8 +35,8 @@ const records = [
       {
         text: ["作品名: しきょうさまとぼく", "作者: ジェイ・ギャッツビーくん"]
         image:"images/yonsei.png",
-      }
-    ]
+      },
+    ],
   },
 
   {
