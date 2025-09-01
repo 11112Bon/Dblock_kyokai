@@ -1,4 +1,5 @@
 const log = document.getElementById("log");
+let glitchMode = false;
 
 // ===== 記録データ =====
 const records = [
@@ -127,15 +128,18 @@ const records = [
 let line = 0;
 let recordIndex = 0;
 
-// ===== タイピング表示 =====
 function typeLine(text, callback) {
   let i = 0;
   let interval = setInterval(() => {
-    log.innerHTML += text[i] || "";
-    i++;
-    if (i >= text.length) {
+    if (i < text.length) {
+      const span = document.createElement("span");
+      span.textContent = text[i];
+      if (glitchMode) span.classList.add("glitch"); // ← glitchModeならクラス付与
+      log.appendChild(span);
+      i++;
+    } else {
       clearInterval(interval);
-      log.innerHTML += "\n";
+      log.appendChild(document.createElement("br"));
       setTimeout(callback, 500);
     }
   }, 50);
@@ -148,6 +152,11 @@ function showRecord(record) {
   let i = 0;
   function nextLine() {
     if (i < record.text.length) {
+      // ★ Day 12 の「流石にまずいのだ...」行に来たら glitchMode を true にする
+      if (record.day === "Day 12" && record.text[i].startsWith("流石にまずいのだ")) {
+        glitchMode = true;
+      }
+
       typeLine(record.text[i], nextLine);
       i++;
     } else {
@@ -157,23 +166,21 @@ function showRecord(record) {
         img.className = "evidence";
         log.appendChild(img);
       }
+
       if (record.evidences) {
-  record.evidences.forEach(ev => {
-    ev.text.forEach(line => {
-      let p = document.createElement("p");
-      p.textContent = line;
-      log.appendChild(p);
-    });
+        record.evidences.forEach(ev => {
+          ev.text.forEach(line => {
+            typeLine(line, () => {}); // ← evidence のテキストもタイプ表示に
+          });
 
-    if (ev.image) {
-      let evImg = document.createElement("img");
-      evImg.src = ev.image;
-      evImg.className = "evidence";
-      log.appendChild(evImg);
-    }
-  });
-}
-
+          if (ev.image) {
+            let evImg = document.createElement("img");
+            evImg.src = ev.image;
+            evImg.className = "evidence";
+            log.appendChild(evImg);
+          }
+        });
+      }
 
       recordIndex++;
       if (recordIndex < records.length) {
