@@ -2,58 +2,19 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dブロ 恐会</title>
+  <title>聖ヴァンジン教会 潜入記録</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 昼の教会 -->
-  <section class="scene forest-day">
-    <img src="images/church_day.png" class="bg">
-  </section>
+  <div id="terminal">
+    <pre id="log"></pre>
+  </div>
 
-  <!-- 夜になる -->
-  <section class="scene forest-night">
-    <img src="images/church_night.png" class="bg">
-  </section>
-
-  <!-- 教会の扉 -->
-  <section class="scene church-door" id="door">
-    <div class="door-wrapper">
-      <img src="images/door_closed.png" class="door left">
-      <img src="images/door_closed.png" class="door right">
-    </div>
-  </section>
-
-  <!-- 教壇とぬいぐるみ -->
-  <section class="scene altar">
-    <img src="images/altar.png" class="bg">
-    <img src="images/bear_normal.png" class="bear">
-  </section>
-
-  <!-- 振り返るぬいぐるみ -->
-  <section class="scene scare" id="scare1">
-    <img src="images/bear_horror.png" class="bear">
-  </section>
-
-  <!-- 集団の声 + 闇に包まれる -->
-  <section class="scene chanting">
-    <div class="chant">...囁き声が大きくなる...</div>
-  </section>
-
-  <!-- ブラックアウト + 血文字 -->
-  <section class="scene blackout">
-    <img src="images/blood_dblock.png" class="blood left">
-    <img src="images/blood_kyoukai.png" class="blood center">
-  </section>
-
-  <!-- 脱出指令 -->
-  <section class="scene ending">
-    <img src="images/blood_escape.png" class="blood">
-    <p class="credit">©️R07 Dブロ展示 Taiga Kaneko</p>
-  </section>
-
-  <div id="flashlight"></div>
+  <!-- BGM & 効果音 -->
+  <audio id="bgm" src="sounds/bgm.mp3" loop></audio>
+  <audio id="typeSound" src="/type.mp3"></audio>
+  <audio id="glitchSound" src="sounds/glitch.mp3"></audio>
+  <audio id="screamSound" src="sounds/scream.mp3"></audio>
 
   <script src="script.js"></script>
 </body>
