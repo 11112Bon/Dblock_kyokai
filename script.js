@@ -35,7 +35,7 @@ const records = [
     evidences: [
       {
         text: ["作品名: あかいおねえさんとぼく", "作者: フィリップ・ロンバードくん"],
-        image:"images/akainna.png",
+        image:"images/akaionna.png",
       },
       {
         text: ["作品名: しきょうさまとぼく", "作者: ジェイ・ギャッツビーくん"],
