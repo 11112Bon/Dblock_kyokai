@@ -1,0 +1,174 @@
+const log = document.getElementById("log");
+const bgm = document.getElementById("bgm");
+const typeSound = document.getElementById("typeSound");
+const glitchSound = document.getElementById("glitchSound");
+const screamSound = document.getElementById("screamSound");
+
+// ===== 記録データ =====
+const records = [
+  {
+    day: "Day 1",
+    text: [
+      "20▒▒年▒▒月▒▒日",
+      "公国▒▒州▒▒山",
+      "Saint Wahnsinn Church 本部に潜入成功",
+      "",
+      "最終目標の確認:",
+      "元司教ヤーマ＝テラ2世復活についての情報収集",
+      "本調査の入信斡旋"
+    ]
+  },
+  {
+    day: "Day 2",
+    text: [
+      "内部調査を開始。",
+      "異様に本堂で炊かれている香炉の香りが強い。",
+      "本堂、霊安室、遊戯室を確認した。",
+      "遊戯室には子供の絵いくつかあった。",
+      "その中で2つ写真を撮ることに成功したため、添付しておく。",
+      "",
+      "[添付資料] 教会内部の間取り図を取得",
+      ""
+    ],
+    image: "images/church_interior.png",
+      text:[
+        "作品名:",
+      ],
+  },
+  {
+    day: "Day 5",
+    text: [
+      "ヤーマ＝テラ4世が教会に姿を現した。",
+      "推定年齢は18歳くらいのようだ。目が異様に冷たい。",
+      "",
+      "[添付資料] ヤーマ＝テラ4世の撮影に成功。"
+    ],
+    image: "images/yama4.png"
+  },
+  {
+    day: "Day 8",
+    text: [
+      "本堂の裏にて内部文書を一部手にいれることに成功した。",
+      "『我々の前身”ヴァンジンコーポレーション”は",
+      "元総人口2500万人超えを誇る麻薬カクテルであった。",
+      "教会の創設者ヤーマ＝テラ2世様は",
+      "ヴァンジンコーポレーションのトップであった。",
+      "しかし、非常に残念なことに信徒の一人が我々の存在を警察に密告し",
+      "2世様とその息子様であられる3世様及び幹部が投獄されてしまった。",
+      "密告人は即刻我々の手で始末した。",
+      "我々の麻薬を超え、密告までしたものだから",
+      "拷問によって生き地獄48時間の後失血死によっての死を確認した。",
+      "7歳であったヤーマ＝テラ4世様は一部の幹部と共に警察から逃れた。",
+      "そして新たに宗教団体聖ヴァンジン教会を設立し、",
+      "麻薬を改良し、強力な催眠作用のある麻薬を開発した。』",
+      "との記載。",
+      "",
+      "⚠⚠⚠記録映像に異常あり...#%&#$?!"
+    ],
+    glitch: true
+  },
+  {
+    day: "Day 12",
+    text: [
+      "再び内部資料を見つけた。",
+      "この間のものよりかはずいぶんと新しいようだ。",
+      "『新しい麻薬は本堂の香炉にて焚き続ける",
+      "教会に踏み入れたものは全員麻薬漬けになるのだ...』",
+      "背筋が凍った。訓練を受けているとはいえ12日も吸っているとなると",
+      "流石にまずいのだ...そういえばすこしくらくらするような..うっっ...",
+      "........",
+      "",
+      "まｚ..i..っ...",
+      "",
+      "うっ...あああああぁぁぁぁぁぁああああぁぁぁあああああっ.......",
+      "ま...ずい.....",
+      "叫び声でおびただしい数の足音がこちらに向かってくる",
+      "..........",
+      ".....",
+      "..",
+      ".",
+
+      "はあ....はあ....はあ....はあ.....",
+      "なんとかロッカーの裏に隠れて事なきを得たがまずいことに変わりはない..",
+      "いやまて",
+      "霊安室....だよな...？？",
+      "ヤツが.....................",
+      "い......a........",
+      "逃げろ....にげろ...にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "にげろ",
+      "......",
+      "....",
+      "",
+    ],
+    scream: true
+  }
+];
+
+let line = 0;
+let recordIndex = 0;
+
+// ===== タイピング表示 =====
+function typeLine(text, callback) {
+  let i = 0;
+  let interval = setInterval(() => {
+    log.innerHTML += text[i] || "";
+    typeSound.currentTime = 0;
+    typeSound.play();
+    i++;
+    if (i >= text.length) {
+      clearInterval(interval);
+      log.innerHTML += "\n";
+      setTimeout(callback, 500);
+    }
+  }, 50);
+}
+
+// ===== 記録を順に出す =====
+function showRecord(record) {
+  log.innerHTML += `\n== ${record.day} ==\n\n`;
+
+  let i = 0;
+  function nextLine() {
+    if (i < record.text.length) {
+      typeLine(record.text[i], nextLine);
+      i++;
+    } else {
+      if (record.image) {
+        let img = document.createElement("img");
+        img.src = record.image;
+        img.className = "evidence";
+        log.appendChild(img);
+      }
+      if (record.glitch) {
+        glitchSound.play();
+        log.innerHTML += `<span class="glitch">▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒</span>\n\n`;
+      }
+      if (record.scream) {
+        screamSound.play();
+      }
+      recordIndex++;
+      if (recordIndex < records.length) {
+        setTimeout(() => showRecord(records[recordIndex]), 1000);
+      }
+    }
+  }
+  nextLine();
+}
+
+// ===== 実行 =====
+window.onload = () => {
+  bgm.volume = 0.3;
+  bgm.play();
+  showRecord(records[recordIndex]);
+};
